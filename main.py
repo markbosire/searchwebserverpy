@@ -6,8 +6,8 @@ app = FastAPI()
 @app.get("/search")
 async def perform_search(
     query: str = Query(..., description="Search query string"),
-    sleep_interval: float = Query(2.0, description="Time to wait between requests in seconds"),
-    num_results: int = Query(10, description="Number of results to fetch (max 200)")
+    sleep_interval: float = Query(5.0, description="Time to wait between requests in seconds"),
+    num_results: int = Query(200, description="Number of results to fetch (max 200)")
 ):
     
     if num_results > 200 or num_results <= 0:
